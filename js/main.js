@@ -5,8 +5,10 @@ function showDiv() {
   else {
     document.getElementById("show-div").setAttribute("id", "hide-div");
   }
-}
-
-function addEquations() {
-  // Do some stuff
+  
+  for (i = 0; i < 5; i++) {
+    var rand = Math.floor(Math.random() * (100 - 0)) + 0;
+    var rand2 = Math.floor(Math.random() * (100 - rand)) + rand;
+    document.getElementById("show-div").innerHTML += rand + " + x = " + rand2 + "<br/>";
+  }
 }
