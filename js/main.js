@@ -1,55 +1,21 @@
-function showDiv() {
-  // Set variables
-  var hide = document.getElementById("hide-div");
-  var show = document.getElementById("show-div");
+$(document).ready(function() {
+  $("#get-worksheets").click(function() {
+    $("#no-worksheets").hide();
+    $("#yes-worksheets").show();
+    worksheetHeader();
+    worksheetEquations();
+  });
+});
 
-  // Change div ID so content is no longer hidden
-  if (hide !== null) {
-    hide.setAttribute("id", "show-div");
-    showEquations()
+function worksheetHeader() {
+  $("#yes-worksheets").append("One-step equations worksheet<br/>");
+  $("#yes-worksheets").append("<b>Solve each equation.</b><br/><br/>");
+  $("#yes-worksheets").append("Name___________________________________<br/>");
+  $("#yes-worksheets").append("Date________________ Period____<br/><br/>");
+};
+
+function worksheetEquations() {
+  for (i = 0; i < 10; i++) {
+    $("#yes-worksheets").append(i + ") " + "2 + x = 15<br/>");
   }
-  else {
-    show.setAttribute("id", "hide-div");
-  }
-}
-
-function hideDiv() {
-  // Hide div
-  var show = document.getElementById("show-div");
-
-  if (show !== null) {
-    show.setAttribute("id", "hide-div");
-  }
-}
-
-function showEquations() {
-  // Find primary action
-  var mathActionSelect = document.getElementById("math-action");
-  var userAction = mathActionSelect.options[mathActionSelect.selectedIndex].value;
-
-  // Determine number of equations
-  var numberOfResults = document.getElementById("number-of-equations").value;
-  var show = document.getElementById("show-div");
-
-  show.innerHTML = ""
-
-  if (userAction === "One Step Equations") {
-    if (isNaN(parseInt(numberOfResults))) {
-      numberOfResults = 10;
-    }
-    show.innerHTML += "Generating " + parseInt(numberOfResults) + " one step equations.";
-    show.innerHTML += "<br/><br/>";
-    
-    for (i = 0; i < parseInt(numberOfResults); i++) {
-      var rand1 = Math.floor((Math.random() * 100) + 0);
-      var rand2 = Math.floor((Math.random() * 100) + 0);
-      var operands = ['+', '-', '*', '/'];
-      var random_operand = operands[Math.floor(Math.random() * operands.length)];
-      show.innerHTML += rand1 + " " + random_operand + " x = " + rand2 + "<br/>";
-    }
-  }
-  else {
-    // Flashcards
-    show.innerHTML += "Here are some flashcards.";
-  }
-}
+};

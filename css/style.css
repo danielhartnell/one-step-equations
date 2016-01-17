@@ -42,3 +42,13 @@ h1 {
 .navbar {
   margin-bottom: 0;
 }
+
+#yes-worksheets {
+  display: none;
+  background-color: #fff;
+  float: none;
+  margin: 0 auto;
+  width: 66%;
+  color: #000;
+  text-align: left;
+}
